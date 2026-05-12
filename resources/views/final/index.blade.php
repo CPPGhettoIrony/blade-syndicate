@@ -2,9 +2,7 @@
 
 <?php
     begin("Índice", "index");
-    menu([
-        menu_element("Nuestras Barberías", '/barberias'),
-    ]);
+    menu([]);
 ?>
 
 <main>

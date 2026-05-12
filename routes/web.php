@@ -7,68 +7,39 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-// Índice
+/*
+|--------------------------------------------------------------------------
+| RUTAS PÚBLICAS (Accesibles sin login)
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/', [IndexController::class, 'index']);
 
-// Barberias
-Route::get('/barberias', [ListaController::class, 'index']);
+// Rutas de autenticación
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
-// CRUD CITAS
-
-Route::get('/citas', [CitaController::class, 'index']);
-Route::get('/citas/create', [CitaController::class, 'create']);
-
-Route::get('/reserva/{id}', [CitaController::class, 'create']);
-
-Route::get('/citas/{id}/edit', [CitaController::class, 'edit']);
-Route::post('/citas', [CitaController::class, 'store']);
-Route::put('/citas/{id}', [CitaController::class, 'update']);
-Route::delete('/citas/{id}', [CitaController::class, 'destroy']);
-
-// Login
-Route::get('/login', [AuthController::class, 'index']);
-
-// Vistas de prueba
-
-use App\Http\Controllers\BarberiaController;
-use App\Http\Controllers\ServicioController;
-use App\Http\Controllers\UserController;
-
-
-//PANEL
-
-Route::get('/panel', function () {
-    return view('panel');
-});
 
 /*
-
-//CRUD BARBERIAS
-
-Route::get('/barberias', [BarberiaController::class, 'index']);
-Route::get('/barberias/create', [BarberiaController::class, 'create']);
-Route::post('/barberias', [BarberiaController::class, 'store']);
-Route::get('/barberias/{id}/edit', [BarberiaController::class, 'edit']);
-Route::put('/barberias/{id}', [BarberiaController::class, 'update']);
-Route::delete('/barberias/{id}', [BarberiaController::class, 'destroy']);
-
-
-// CRUD SERVICIOS
-
-Route::get('/servicios', [ServicioController::class, 'index']);
-Route::get('/servicios/create', [ServicioController::class, 'create']);
-Route::post('/servicios', [ServicioController::class, 'store']);
-Route::get('/servicios/{id}/edit', [ServicioController::class, 'edit']);
-Route::put('/servicios/{id}', [ServicioController::class, 'update']);
-Route::delete('/servicios/{id}', [ServicioController::class, 'destroy']);
+|--------------------------------------------------------------------------
+| RUTAS PROTEGIDAS (Solo usuarios autenticados)
+|--------------------------------------------------------------------------
 */
 
-// CRUD USUARIOS
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/usuarios', [UserController::class, 'index']);
-Route::get('/usuarios/create', [UserController::class, 'create']);
-Route::post('/usuarios', [UserController::class, 'store']);
-Route::get('/usuarios/{id}/edit', [UserController::class, 'edit']);
-Route::put('/usuarios/{id}', [UserController::class, 'update']);
-Route::delete('/usuarios/{id}', [UserController::class, 'destroy']);
+    // Barberías
+    Route::get('/barberias', [ListaController::class, 'index']);
+
+    // CRUD Citas
+    Route::get('/citas', [CitaController::class, 'index']);
+    Route::get('/reserva/{id}', [CitaController::class, 'create']);
+    Route::get('/citas/{id}/edit', [CitaController::class, 'edit']);
+    Route::post('/citas', [CitaController::class, 'store']);
+    Route::put('/citas/{id}', [CitaController::class, 'update']);
+    Route::delete('/citas/{id}', [CitaController::class, 'destroy']);
+
+    // Logout (Solo tiene sentido si ya estás dentro)
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+});

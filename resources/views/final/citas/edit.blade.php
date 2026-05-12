@@ -70,14 +70,18 @@
             <input type="time" name="hora_inicio" value="{{ \Carbon\Carbon::parse($cita->hora_inicio)->format('H:i') }}">
 
             {{-- TODO: Ocultar si el que edita la reserva es un usuario normal --}}
-            <label>Estado:</label>
-            <select name="estado">
-                @foreach($estados as $estado)
-                    <option value="{{ $estado }}" @selected($cita->estado == $estado)>
-                        {{ $estado }}
-                    </option>
-                @endforeach
-            </select>
+            @if(array_key_exists('estado', $campos))
+                <input type="hidden" name="campos" value="{{ $cita->estado }}">
+            @else
+                <label>Estado:</label>
+                <select name="estado">
+                    @foreach($estados as $estado)
+                        <option value="{{ $estado }}" @selected($cita->estado == $estado)>
+                            {{ $estado }}
+                        </option>
+                    @endforeach
+                </select>
+            @endif
 
             <button type="submit">Actualizar cita</button>
         </form>

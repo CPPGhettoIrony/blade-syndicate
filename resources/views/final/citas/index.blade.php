@@ -9,7 +9,7 @@
 @endphp
 
 <main>
-    <h2>Bienvenido, Elfo7773</h2>
+    <h2>Bienvenido, {{ $usuario }}</h2>
 
     <div id="panel-usuario">
         <div id="seccion-reservas">

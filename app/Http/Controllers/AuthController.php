@@ -12,7 +12,7 @@ class AuthController extends Controller {
         // Intenta loguear: busca el email y compara el password (hasheado)
         if (Auth::attempt($credenciales)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard'); // Va al dashboard
+            return redirect()->intended('barberias');
         }
 
         return back()->withErrors(['mensaje' => 'Usuario o contraseña incorrectos']);
@@ -24,6 +24,8 @@ class AuthController extends Controller {
     }
 
     public function index() {
+        if (Auth::check())
+            return redirect('/barberias');
         return view('final.login', []);
     }
 }

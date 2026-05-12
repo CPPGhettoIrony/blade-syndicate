@@ -22,8 +22,9 @@
                 <div> 
                     <h3>{{ $barberia->nombre }}</h3>
                     <div>{{ $barberia->descripcion }}</div>
-                    {{-- TODO: Ocultar si el usuario es un barbero o admin --}}
-                    <a href="/reserva/{{ $barberia->id }}" class="button">Reservar</a>
+                    @if($puede_reservar)
+                        <a href="/reserva/{{ $barberia->id }}" class="button">Reservar</a>
+                    @endif
                 </div>
             </div>
         @endforeach

@@ -1,5 +1,7 @@
 <?php
+
     use Illuminate\Support\Str; // IMPORTANTE: Para que Str:: funcione
+    use Illuminate\Support\Facades\Auth;
 
     function begin($name, $css) {
         // Usa asset() para las rutas o asegúrate de que lleven la barra inicial
@@ -38,7 +40,8 @@
     function menu($elements) {
         echo '<div class="menu">';
             foreach ($elements as $element) echo get_menu_element_html($element);
-            echo get_menu_element_html(menu_element('Iniciar Sesión', '/login'));
+            echo (Auth::check() ?   get_menu_element_html(menu_element('Cerrar Sesión', '/logout'))
+                                :   get_menu_element_html(menu_element('Iniciar Sesión', '/login')));
         echo '</div>';
     }
 
@@ -64,8 +67,7 @@
             if(isset($map[$param])) {
                 return get_param($map[$param], $id, 'nombre') 
                     . ' '
-                    . get_param($map[$param], $id, 'apellidos')
-                    . ' (ID: ' . $id . ')';
+                    . get_param($map[$param], $id, 'apellidos');
             }
         }
         return $id;
