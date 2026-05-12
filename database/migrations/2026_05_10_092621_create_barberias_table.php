@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('barberias', function (Blueprint $table) {
 
             $table->id();
-            $table->string('nombre');
-            $table->string('ciudad');
-            $table->string('direccion');
-            $table->string('codigo_postal', 10); //10 --> longitud máxima
+            $table->string('nombre', 30);
+            $table->string('descripcion', 200);
+            $table->string('ciudad', 30);
+            $table->string('direccion', 30);
+            $table->string('codigo_postal', 10);
             $table->string('telefono', 20);
+            $table->string('imagen', 20);
             $table->time('horario_apertura');
             $table->time('horario_cierre');
             $table->timestamps();

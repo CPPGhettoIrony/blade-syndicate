@@ -1,0 +1,76 @@
+@import url(style.css);
+
+h4 {
+    color: var(--color_G);
+    border-left: 4px solid var(--color_C);
+    padding-left: 10px;
+}
+
+button, #submit, .button{
+
+    border-radius: 10px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    font-size: medium;
+
+    border-color: var(--color_B);
+    background-color: var(--color_A);
+    color: var(--color_C);
+}
+
+main {
+    gap:20px;
+}
+
+main div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+main div div {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color_A);
+    min-width: 500px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    color: var(--color_C);
+    border-radius: 5px;
+}
+
+#seccion-noticias {
+    max-width: 30%;
+}
+
+#seccion-reservas {
+    min-width: 70%;
+}
+
+table {
+    border-style: hidden;
+    border-collapse: separate; /* Obliga a separar las celdas */
+    border-spacing: 2px;      /* Define el tamaño del espacio entre celdas */
+    width: 100%;               /* Opcional: para que ocupe todo el ancho disponible */
+}
+
+th, td {
+    border-radius: 5px;
+    border-color: var(--color_E);
+    padding: 12px;             /* Añade aire por dentro para que el texto respire */
+    text-align: center;        /* Centra el contenido */
+}
+
+th {
+    background-color: var(--color_F); /* Asegúrate de tener definida esta variable en tu :root */
+    color: var(--color_D);
+}
+
+td {
+    background-color: var(--color_B);
+}

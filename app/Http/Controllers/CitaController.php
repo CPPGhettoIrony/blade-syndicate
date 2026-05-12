@@ -8,25 +8,32 @@ use Illuminate\Http\Request;
 
 class CitaController extends Controller
 {
-    public function index()
-    {
-        $citas = Cita::with(['cliente', 'barbero', 'barberia', 'servicio'])->get();
-
-        return view('citas.index', compact('citas'));
+    public function index() {
+        // Placeholder, listar TODAS las citas
+        $citas = Cita::all();
+        $campos = ['id_cliente', 'id_barberia', 'id_barbero', 'id_servicio', 'fecha', 'hora_inicio', 'estado'];
+        return view('final.citas.index', compact('citas', 'campos'));
     }
 
-    public function create()
+    public function create($id = null)
     {
         $clientes = \App\Models\User::where('rol', 'cliente')->get();
         $barberos = \App\Models\User::where('rol', 'barbero')->get();
         $barberias = \App\Models\Barberia::all();
         $servicios = \App\Models\Servicio::all();
 
-        return view('citas.create', compact(
+        // Ejemplos
+        $campos = [];
+
+        if(!is_null($id))
+            $campos['id_barberia'] = $id;
+
+        return view('final.citas.create', compact(
             'clientes',
             'barberos',
             'barberias',
-            'servicios'
+            'servicios',
+            'campos'
         ));
     }
 
@@ -61,12 +68,18 @@ class CitaController extends Controller
         $barberias = \App\Models\Barberia::all();
         $servicios = \App\Models\Servicio::all();
 
-        return view('citas.edit', compact(
+        $campos = [];
+
+        $estados = ['pendiente', 'confirmada', 'completada'];
+
+        return view('final.citas.edit', compact(
             'cita',
             'clientes',
             'barberos',
             'barberias',
-            'servicios'
+            'servicios',
+            'campos',
+            'estados'
         ));
     }
 
@@ -88,7 +101,7 @@ class CitaController extends Controller
             'fecha' => $request->fecha,
             'hora_inicio' => $request->hora_inicio,
             'hora_fin' => $horaFin,
-            'estado' => 'pendiente',
+            'estado' => $request->estado,
         ]);
 
         return redirect('/citas');

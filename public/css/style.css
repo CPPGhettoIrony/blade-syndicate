@@ -1,0 +1,128 @@
+/* 1. VARIABLES Y CONFIGURACIÓN GLOBAL */
+:root {
+    --color_E : #111111;    /* Fondo general (Negro) */
+    --color_F : #201e20;    /* Fondo cajas 2 */
+    --color_A : #312e33;    /* Fondo cajas (Gris oscuro) */
+    --color_B : #38333a;    /* Fondo header */
+    --color_G : #c6b3ce;
+    --color_C : #eaebb7;    /* Texto secundario */
+    --color_D : #ffffff;    /* Texto principal (Blanco) */
+    --font: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color_E);
+    color: var(--color_D);
+}
+
+/* 2. HEADER Y LOGO */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color_B);
+    padding: 10px 50px;
+}
+
+#logo {
+    font-family: 'Six Caps', sans-serif;
+    font-size: 100px;
+    font-weight: lighter;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+#logo img {
+    height: 90px;
+    margin: 0 15px;
+}
+
+.contact {
+    font-size: 0.8rem;
+    color: var(--color_C);
+}
+
+/* 3. MENÚ DE NAVEGACIÓN */
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color_A);
+    padding: 15px;
+    font-size: 0.9rem;
+    color: var(--color_C);
+    border-top: 1px solid #444; /* Sutil separación */
+}
+
+.menu div {
+    margin: 0 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* 4. CONTENIDO PRINCIPAL (MAIN) */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 65vh;
+}
+
+/* 7. FOOTER */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color_A);
+    color: var(--color_G);
+    padding: 30px;
+    font-size: 0.8rem;
+    margin-top: 50px;
+}
+
+h2, h3 {
+    color: var(--color_G);
+    text-transform: uppercase;
+    border-left: 4px solid var(--color_C);
+    padding-left: 10px;
+}
+
+.text-input, button, .button, #submit, select, input[type="date"], input[type="time"] {
+
+    border-radius: 10px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    font-size: medium;
+
+    border-color: var(--color_B);
+
+}
+
+.text-input, select, input[type="date"], input[type="time"] {
+    background-color: var(--color_F);
+    color: var(--color_G);
+}
+
+button, .button, #submit {
+    background-color: var(--color_F);
+    color: var(--color_C);
+}
+
+a {  /* Unvisited link  */
+    color:var(--color_G);
+    text-decoration: none !important;
+}        
+
+a:visited {color:var(--color_C);} /* Visited link    */
+a:hover {color:var(--color_D);}   /* Mouse over link */
+a:active {color:#F0F030;}  /* Selected link   */

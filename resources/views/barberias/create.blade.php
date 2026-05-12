@@ -108,6 +108,7 @@
             <input type="text" name="telefono" placeholder="Teléfono">
             <input type="time" name="horario_apertura">
             <input type="time" name="horario_cierre">
+            <input type="text" name="imagen">
 
             <button type="submit">Guardar Barbería</button>
 

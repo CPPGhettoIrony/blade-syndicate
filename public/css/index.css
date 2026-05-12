@@ -1,0 +1,71 @@
+@import url(style.css);
+
+/* 5. SECCIÓN RECOMENDACIONES (La caja gris que faltaba) */
+#Recomendaciones {
+    background-color: var(--color_A); /* Aquí está el fondo gris */
+    width: 90%;
+    max-width: 1100px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+#Recomendaciones h2 {
+    margin-top: 0;
+}
+
+#Lista_Recomendaciones {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+    overflow-x: auto; /* Por si añades muchas fotos */
+}
+
+#Lista_Recomendaciones div {
+    background-color: var(--color_F);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+    gap: 5px;
+    color: var(--color_G);
+    letter-spacing: 1px;
+}
+
+#Lista_Recomendaciones div img {
+    height: 200px;
+    width: auto;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+/* 6. SECCIÓN DOBLE (CLIENTES Y PROFESIONALES) */
+#Secciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1100px;
+    gap: 30px;
+}
+
+#Secciones > div {
+    flex: 1;
+    background-color: var(--color_A); /* Fondo gris */
+    padding: 30px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+#Secciones h3 {
+    margin-top: 0;
+}
+
+#Secciones p {
+    line-height: 1.6;
+    color: var(--color_C);
+}

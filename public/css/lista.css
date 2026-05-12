@@ -1,0 +1,59 @@
+@import url(style.css);
+
+/* 5. SECCIÓN RECOMENDACIONES (La caja gris que faltaba) */
+#Lista {
+    width: 90%;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    gap: 20px;
+}
+
+#Lista div {
+    color: var(--color_C);
+    background-color: var(--color_A);
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    padding-top: 5px;
+    gap: 5px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+#Lista div div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0px;
+}
+
+
+#Lista div * {
+    margin: 15px;
+}
+
+#Lista div img {
+    height: 300px;
+    width: auto;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+#Lista div button {
+
+    border-radius: 10px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    font-size: medium;
+
+    border-color: var(--color_B);
+    background-color: var(--color_A);
+    color: var(--color_C);
+}

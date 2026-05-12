@@ -1,0 +1,31 @@
+@import url(style.css);
+
+main {
+    justify-content: center;
+}
+
+#form {
+    background-color: var(--color_A);
+    min-width: 500px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    color: var(--color_C);
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:20px;
+    align-items: center;    
+}

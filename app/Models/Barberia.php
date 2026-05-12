@@ -9,12 +9,14 @@ class Barberia extends Model
     protected $fillable = [ //Qué campos se pueden rellenar automáticamente
 
         'nombre',
+        'descripcion',
         'ciudad',
         'direccion',
         'codigo_postal',
         'telefono',
         'horario_apertura',
-        'horario_cierre'
+        'horario_cierre',
+        'imagen'
 
     ];
 
@@ -29,4 +31,5 @@ class Barberia extends Model
         return $this->hasMany(Cita::class, 'id_barberia');
         
     }
+
 }
