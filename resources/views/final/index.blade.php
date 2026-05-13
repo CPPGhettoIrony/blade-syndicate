@@ -8,17 +8,35 @@
 <main>
 
     <div id="Recomendaciones">
-        <h2>Recomendaciones</h2>
+        <div class="recomendaciones-header">
+            <h2>Recomendaciones</h2>
+        </div>
+
         <div id="Lista_Recomendaciones">
             @foreach($barberias as $barberia)
-            <div>
-                {{ $barberia->nombre }}
-                <img src=img/{{ $barberia->imagen }}>
-            </div>
+                <article class="barberia-card">
+
+                    <div class="barberia-imagen">
+                        <img src="{{ asset('img/' . $barberia->imagen) }}" alt="{{ $barberia->nombre }}">
+                    </div>
+
+                    <div class="barberia-contenido">
+                        <h3>{{ $barberia->nombre }}</h3>
+
+                        <p class="barberia-direccion">
+                            {{ $barberia->direccion }}
+                        </p>
+
+                        <p class="barberia-ubicacion">
+                            {{ $barberia->ciudad }} - {{ $barberia->codigo_postal }}
+                        </p>
+                    </div>
+
+                </article>
             @endforeach
         </div>
     </div>
-
+    
     <div id="Secciones">
         <div>
             <h3>Para Clientes:</h3>

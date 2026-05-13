@@ -19,7 +19,8 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
-
+Route::get('/registro', [AuthController::class, 'registro'])->name('registro');
+Route::post('/registro', [AuthController::class, 'guardarRegistro'])->name('registro.guardar');
 /*
 |--------------------------------------------------------------------------
 | RUTAS PROTEGIDAS (Solo usuarios autenticados)
@@ -43,3 +44,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 });
+

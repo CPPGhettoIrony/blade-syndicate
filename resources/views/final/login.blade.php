@@ -28,6 +28,10 @@
             @endif
 
             <input type="submit" id="submit" value="Iniciar Sesión">
+            <p class="registro-texto">
+                ¿No tienes cuenta?
+                <a href="{{ route('registro') }}">Regístrate aquí</a>
+            </p>
         </form>
     </div>
 </main>
