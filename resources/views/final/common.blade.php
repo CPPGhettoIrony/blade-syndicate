@@ -39,9 +39,24 @@
 
     function menu($elements) {
         echo '<div class="menu">';
-            foreach ($elements as $element) echo get_menu_element_html($element);
-            echo (Auth::check() ?   get_menu_element_html(menu_element('Cerrar Sesión', '/logout'))
-                                :   get_menu_element_html(menu_element('Iniciar Sesión', '/login')));
+
+            foreach ($elements as $element) {
+                echo get_menu_element_html($element);
+            }
+
+            if (Auth::check()) {
+                echo get_menu_element_html(menu_element('Barberías', '/barberias'));
+            }
+
+            if (Auth::check() && Auth::user()->rol === 'admin_general') {
+                echo get_menu_element_html(menu_element('Dashboard', '/panel'));
+            }
+
+            echo (Auth::check()
+                ? get_menu_element_html(menu_element('Cerrar Sesión', '/logout'))
+                : get_menu_element_html(menu_element('Iniciar Sesión', '/login'))
+            );
+
         echo '</div>';
     }
 

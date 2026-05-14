@@ -4,9 +4,10 @@
     begin("Dashboard", "dashboard");
     menu([
         menu_element('Índice', '/'), 
-        menu_element('Nuestras Barberías', '/barberias')
+        
     ]);
 @endphp
+
 
 <main>
     <h2>Bienvenido, {{ $usuario }}</h2>
@@ -46,7 +47,15 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
+
+            @if(Auth::check() && Auth::user()->rol == 'admin_general')
+
+                <div class="volver-panel">
+                    <a href="/panel">Volver al panel</a>
+                </div>
+
+            @endif
+        </div>    
     </div>
 </main>
 
